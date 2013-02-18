@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/30/trunk/maven_projects/SpringHibernateTemplate/src/main/java/com/platinumwill/dao
+END
+PlatinumDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/30/trunk/maven_projects/SpringHibernateTemplate/src/main/java/com/platinumwill/dao/PlatinumDaoImpl.java
+END
+AbstractDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/30/trunk/maven_projects/SpringHibernateTemplate/src/main/java/com/platinumwill/dao/AbstractDao.java
+END
+PlatinumDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/30/trunk/maven_projects/SpringHibernateTemplate/src/main/java/com/platinumwill/dao/PlatinumDao.java
+END
