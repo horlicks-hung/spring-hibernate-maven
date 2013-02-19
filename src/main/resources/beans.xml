@@ -53,7 +53,7 @@
 		
 <!-- 		<property name="annotatedClasses"> -->
 <!-- 			<list> -->
-<!-- 				<value>com.platinum.Platinum</value> -->
+<!-- 				<value>com.platinumwill.entity.annotated.*</value> -->
 <!-- 			</list> -->
 <!-- 		</property> -->
 <!-- 		<property name="mappingResources"> -->
