@@ -1,26 +1,31 @@
 package com.platinumwill.test;
 
-import junit.framework.TestCase;
-
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.platinumwill.entity.Product;
 import com.platinumwill.service.PlatinumService;
 
-public class PlatinumTest extends TestCase {
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = { "/test-beans.xml" })
+public class PlatinumTest extends AbstractTest {
 	
-	private static ApplicationContext CONTEXT = new ClassPathXmlApplicationContext("beans.xml");
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
-	
+	private PlatinumService platinumService;
+	public PlatinumService getPlatinumService() {
+		return this.platinumService;
+	}
+	@Autowired
+	public void setPlatinumService(PlatinumService platinumService) {
+		this.platinumService = platinumService;
+	}
+
 	@Test
 	public void testPlatinumService() {
-		PlatinumService platinumService = (PlatinumService) CONTEXT.getBean("platinumService");
-		Product product = (Product) platinumService.queryProduct(1);
-		logger.debug(product.getCreateDate().toString());
+		Product product = (Product) this.getPlatinumService().queryProduct(1);
+		getLogger().debug(product.getCreateDate().toString());
 	}
 
 }
