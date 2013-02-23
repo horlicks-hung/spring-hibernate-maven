@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 2013/2/6 ?W?? 11:22:25 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
-    <class name="com.platinumwill.entity.Product" table="product" catalog="baby_db">
+    <class name="com.platinumwill.entity.Product" table="product" >
         <id name="productId" type="int">
             <column name="product_id" />
             <generator class="assigned" />
