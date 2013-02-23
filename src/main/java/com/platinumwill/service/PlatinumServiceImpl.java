@@ -5,7 +5,7 @@ import com.platinumwill.entity.Product;
 
 public class PlatinumServiceImpl implements PlatinumService {
 	public Product queryProduct(int id) {
-		Product result = this.getPlatinumDao().queryProduct(1);
+		Product result = this.getPlatinumDao().queryProduct(id);
 		return result;
 	}
 	
