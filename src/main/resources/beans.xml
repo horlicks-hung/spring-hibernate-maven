@@ -21,19 +21,23 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
-	<aop:config>
-		<aop:pointcut id="serviceQuery"
-			expression="execution(* com.platinumwill..service.*.query*(..))" />
-		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceQuery" />
-	</aop:config>
+	<bean id="platinumAnnotatedDao" class="com.platinumwill.dao.annotated.PlatinumAnnotatedDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
 
-	<tx:advice id="txAdvice" transaction-manager="transactionManager">
-		<tx:attributes>
-			<tx:method name="*" read-only="true" />
+<!-- 	<aop:config> -->
+<!-- 		<aop:pointcut id="serviceQuery" -->
+<!-- 			expression="execution(* com.platinumwill..service.*.query*(..))" /> -->
+<!-- 		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceQuery" /> -->
+<!-- 	</aop:config> -->
+
+<!-- 	<tx:advice id="txAdvice" transaction-manager="transactionManager"> -->
+<!-- 		<tx:attributes> -->
+<!-- 			<tx:method name="*" read-only="true" /> -->
 			<!-- <tx:method name="*" read-only="true" propagation="REQUIRED" /> -->
 			<!-- <tx:method name="*"/> -->
-		</tx:attributes>
-	</tx:advice>
+<!-- 		</tx:attributes> -->
+<!-- 	</tx:advice> -->
 
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
@@ -53,11 +57,12 @@
 			</props>
 		</property>
 		
-<!-- 		<property name="annotatedClasses"> -->
-<!-- 			<list> -->
-<!-- 				<value>com.platinumwill.entity.annotated.*</value> -->
-<!-- 			</list> -->
-<!-- 		</property> -->
+		<property name="annotatedClasses">
+			<list>
+				<value>com.platinumwill.entity.annotated.Product</value>
+				<value>com.platinumwill.entity.annotated.ProductSales</value>
+			</list>
+		</property>
 <!-- 		<property name="mappingResources"> -->
 <!-- 			<list> -->
 <!-- 				<value>platinum.hbm.xml</value> -->

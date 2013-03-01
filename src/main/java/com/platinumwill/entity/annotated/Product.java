@@ -1,16 +1,18 @@
 package com.platinumwill.entity.annotated;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@Entity
+@Entity(name = "com.platinumwill.entity.annotated.Product")
 @Table(name="product")
 public class Product implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
@@ -54,7 +56,7 @@ public class Product implements java.io.Serializable {
 	}
 
 	@Basic
-	@Column(name = "defaultUnitPrice")
+	@Column(name = "default_unit_price")
 	public Integer getDefaultUnitPrice() {
 		return this.defaultUnitPrice;
 	}
@@ -62,13 +64,23 @@ public class Product implements java.io.Serializable {
 		this.defaultUnitPrice = defaultUnitPrice;
 	}
 
-	@Column(name = "createDate")
+	@Column(name = "create_date")
 	@Temporal(TemporalType.TIME)
 	public Date getCreateDate() {
 		return this.createDate;
 	}
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
+	}
+	
+	//========== relation with product sales ==========
+	private List<ProductSales> sales;
+	@OneToMany(mappedBy = "product")
+	public List<ProductSales> getSales() {
+		return this.sales;
+	}
+	public void setSales(List<ProductSales> sales) {
+		this.sales = sales;
 	}
 
 }
