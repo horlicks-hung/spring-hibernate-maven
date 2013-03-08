@@ -17,18 +17,9 @@
         <property name="createDate" type="timestamp">
             <column name="create_date" length="19" />
         </property>
-<!--         <set name="sales" table="product_sales" inverse="true" lazy="true" fetch="select"> -->
-<!--             <key> -->
-<!--                 <column name="product_id" not-null="true" /> -->
-<!--             </key> -->
-<!--             <one-to-many class="com.platinumwill.entity.ProductSales" /> -->
-<!--         </set> -->
-        <list name="sales" table="product_sales" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="product_id" not-null="true" />
-            </key>
-            <index column="sale_begin_date"></index>
+        <bag name="sales" table="product_sales" inverse="true" lazy="true" fetch="select">
+            <key column="product_id" />
             <one-to-many class="com.platinumwill.entity.ProductSales" />
-        </list>
+        </bag>
     </class>
 </hibernate-mapping>
